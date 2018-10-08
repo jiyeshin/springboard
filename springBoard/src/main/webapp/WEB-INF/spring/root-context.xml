@@ -13,7 +13,7 @@
 		<property value="oracle.jdbc.driver.OracleDriver"
 			name="driverClassName" />
 			<!-- sid는 orcl 또는 xe가 기본이나 회사가 주는거 쓰면 됨.  -->
-		<property value="jdbc:oracle:thin:@192.168.10.101:1521:xe"
+		<property value="jdbc:oracle:thin:@192.168.0.101:1521:xe"
 			name="url" />
 		<property value="user12" name="username" />
 		<property value="user12" name="password" />
