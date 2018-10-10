@@ -44,7 +44,7 @@
 				<li role="presentation" class="active"><a href="#">메인</a></li>
 				<li role="presentation"><a href="#">목록보기</a></li>
 				<li role="presentation"><a href="#">게시물 쓰기</a></li>
-				<li role="presentation"><a href="#">회원가입</a></li>
+				<li role="presentation"><a href="${pageContext.request.contextPath}/user12/register">회원가입</a></li>
 			</ul>
 		</section>
 	</aside>
