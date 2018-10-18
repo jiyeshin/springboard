@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.jy.springboard.domain.User12;
+
 @Repository
 public class UserDao {
 
@@ -20,6 +22,18 @@ public class UserDao {
 	//아이디 중복 체크 메소드 
 	public String idCheck(String email) {
 		//이름을 확인하고 파라미터 존재 여부를 확인. 
+		
 		return sqlSession.selectOne("user12.idcheck", email);
 	}
+	
+	//회원가입을 처리할 메소드
+	public void register(User12 user12){
+		sqlSession.insert("user12.register", user12);
+		}
+	
+	//로그인 처리를 위한 메소드 
+	public User12 login(String email){
+		return sqlSession.selectOne("user12.login", email);
+	}
+
 }
