@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memo">
+	<!-- memo 테이블의 데이터를 전부 가져오는 sql -->
+	<select id = "memolist" resultType="java.util.Map">
+		select * 
+		from memo
+		order by regdate desc
+	</select>
+	
+	<!-- num을 입력 받아서 하나의 데이터를 가져오는 sql -->
+	<select id = "memodetail" parameterType="java.lang.Integer" resultType="java.util.Map">
+		select * 
+		from memo
+		where num = #{num}
+	</select>
+	
+	<!-- memo 테이블에 데이터를 삽입하는 sql -->
+	<insert id = "memoinsert" parameterType ="java.util.Map">
+		insert into memo (num, title, contents, regdate, image_path)
+		values (memoseq.nextval, #{title}, #{contents}, #{regdate}, #{image_path})
+	</insert>
+	
+	<!-- num을 입력받아서 memo 테이블의 데이터를 삭제하는 sql -->
+	<delete id = "memodelete" parameterType = "java.lang.Integer">
+		delete from memo
+		where num = #{num}
+	</delete>
+
+</mapper>
